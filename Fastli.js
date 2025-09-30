@@ -5,10 +5,10 @@
         const menu = document.querySelector('div:has(> button)') || document.querySelector('.categories, .menu, .some-class');
         if (!menu) return;
 
-        // Проверим, не добавляли ли уже аккордеон
+     
         if (document.getElementById("accordionToggle")) return;
 
-        // Оборачиваем меню в контейнер
+     
         const wrapper = document.createElement("div");
         wrapper.style.overflow = "hidden";
         wrapper.style.maxHeight = "0px";
@@ -17,7 +17,7 @@
         menu.parentNode.insertBefore(wrapper, menu);
         wrapper.appendChild(menu);
 
-        // Создаем кнопку
+   
         const toggleBtn = document.createElement("button");
         toggleBtn.id = "accordionToggle";
         toggleBtn.textContent = "Категории ▾";
@@ -47,7 +47,6 @@
         });
     }
 
-    // Ждем пока SPA подгрузит меню
     const observer = new MutationObserver(() => {
         if (document.querySelectorAll('button, a').length > 10) {
             initAccordionMenu();
